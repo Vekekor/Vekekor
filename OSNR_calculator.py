@@ -1,7 +1,5 @@
 import math
 from tkinter import*
-from tkinter import messagebox
-from PIL import*
 
 root = Tk()
 pin = DoubleVar()
@@ -12,7 +10,7 @@ osnr = StringVar()
 def calc_osnr():
     k = 58 + pin.get() - spl.get() - nf.get() - math.log10(span.get())
     osnr.set(f"OSNR is: {round(k,2)} dB")
-winfow = root.geometry("400x400")
+window = root.geometry("400x400")
 Label(root, text="OSNR calculation application", font="calibri 15").pack()
 Label(root, text="Enter I/P dBm").pack(pady=3)
 Entry(root, textvariable=pin).pack(pady=3)
