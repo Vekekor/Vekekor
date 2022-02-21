@@ -1,4 +1,4 @@
-- 👋 Hi, I’m @Vekekor
+- 👋 Hi, I’m @Keb
 - 👀 I’m interested in Python, Embedded systems, Machine learning
 - 🌱 I’m currently learning C, Python
 - 📫 How to reach me veikka.korhonenfly@gmail.com
