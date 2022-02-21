@@ -5,14 +5,14 @@ windwo =  root.geometry("300x350")
 name = StringVar()
 password = StringVar()
 def correct_username():
-    if name.get() == "Homer77":
+    if name.get() == "":
         return True
-    elif name.get() != "Homer77":
+    elif name.get() != "":
         print("False")
 def correct_password():
-    if password.get() == "Homerissecret":
+    if password.get() == "":
         return True
-    elif password.get() !="Homerissecret":
+    elif password.get() !="":
         print("False")
 getin = False
 def check_if_bothCorrect():
