@@ -1,0 +1,115 @@
+
+
+from random import*
+
+
+n = "X"
+m = "O"
+def print_state(state):
+
+
+    print_b = ''
+    print_b += '+---+---+---+\n'
+    for i in range(3):
+        for j in range(3):
+            tile = state[i*3+j]
+            print_b += '| {} '.format(' ' if tile == 0 else tile)
+        print_b += '|\n'
+        print_b += '+---+---+---+\n'
+    print(print_b)
+    return print_b
+
+board = [0,0,0,0,0,0,0,0,0]
+def victory_x():
+    if (board[0] == n and board[1] == n  and board[2] == n) or (board[3] == n and board[4] == n and board[5] == n) or (board[6] == n and board[7] == n  and board[8] == n):
+        print("Player 1 wins")
+        return True
+    if (board[0] == n and board[4] ==n  and board[8] == n) or (board[2] == n and board[4] == n  and board[6] ==n):
+        print("Player 1 wins")
+        return True
+    if (board[0] == n and board[3] == n  and board[6] == n) or (board[1] == n and board[4] == n  and board[7] == n) or (board[2] == n and board[5] == n  and board[8] == n):
+        print("Player 1 wins")
+        return True
+def victory_y():
+    if (board[0] == m and board[1] == m  and board[2] == m) or (board[3] == m and board[4] == m  and board[5] == m) or (board[6] == m and board[7] == m  and board[8] == m):
+        print("Player 2 wins")
+        return True
+    if (board[0] == m and board[4] == m  and board[8] == m) or (board[2] == m and board[4] == m  and board[6] == m):
+        print("Player 2 wins")
+        return True
+    if (board[0] == m and board[3] == m  and board[6] == m) or (board[1] == m and board[4] == m  and board[7] == m) or (board[2] == m and board[5] == m  and board[8] ==m):
+        print("Player 2 wins")
+        return True
+def handle_turn_x():
+
+    while True:
+        try:
+            position = int(input("Player1 choose position form 1-9: "))
+            if (board[position-1] == n or  board[position-1] == m):
+                print("Error")
+                print_state(board)
+        
+            elif (board[position-1] != n or  board[position-1] != m):
+                board.pop(position-1)
+                board.insert(position-1,n)
+                break
+        except (IndexError, KeyError,ValueError):
+            print("Invalid move")
+        
+    print_state(board)
+def handle_turn_y():
+    while True:
+        try:    
+            
+            position = int(input("Player1 choose position form 1-9: "))
+            if (board[position-1] == n or  board[position-1] == m):
+                print("Error")
+                print_state(board)
+        
+            elif (board[position-1] != n or  board[position-1] != m):
+                board.pop(position-1)
+                board.insert(position-1,m)
+                break
+        except (IndexError, KeyError,ValueError):
+            print("Invalid move")
+def playgame():
+    
+
+    while True:
+        print_state(board)
+        handle_turn_x()
+        
+        
+        if victory_x() == True:
+            break
+        handle_turn_y()
+        if victory_y() == True:
+        
+            break
+        
+        
+        
+#def ai_play():
+    #try:
+        #if board[4] != n and board[4] != m:
+            #board.pop(4)
+            #board.insert(4,m)
+            #return True
+        
+        #else:
+            #while True:
+                #for i in range(len(board)):
+                #pass
+                
+
+        
+
+
+    
+
+
+    
+
+
+playgame()
+print_state(board)
